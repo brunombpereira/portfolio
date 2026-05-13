@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importa Inter (peso variável) — não precisa de <link> no head */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --bg: #0b1118;
+  --bg-soft: #111a24;
+  --fg: #e6edf3;
+  --fg-muted: #94a3b8;
+  --accent: #4a9eff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Pequenos retoques globais */
+::selection { background: var(--accent); color: #fff; }
