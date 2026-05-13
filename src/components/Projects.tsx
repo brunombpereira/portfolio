@@ -39,7 +39,7 @@ function ProjectCard({ project }: { project: Project }) {
               href={l.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-sky-400 hover:text-sky-300"
+              className="text-sm font-medium text-sky-400 transition hover:text-sky-300"
             >
               {l.label}
             </a>
@@ -50,7 +50,22 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
+const GROUP_LABELS: Record<NonNullable<Project["group"]>, string> = {
+  "open-source": "Open Source / Personal Projects",
+  work: "Work",
+  academic: "Academic & Other",
+};
+
+const GROUP_ORDER: NonNullable<Project["group"]>[] = ["open-source", "work", "academic"];
+
 export function Projects() {
+  // Group projects by category; preserve in-array order within each group.
+  const grouped = GROUP_ORDER.map((group) => ({
+    group,
+    label: GROUP_LABELS[group],
+    items: projects.filter((p) => (p.group ?? "work") === group),
+  })).filter((g) => g.items.length > 0);
+
   return (
     <section id="projects" className="border-t border-white/5 px-6 py-20">
       <div className="mx-auto max-w-3xl">
@@ -58,9 +73,18 @@ export function Projects() {
           Selected Projects
         </h2>
 
-        <div className="mt-8 grid gap-5">
-          {projects.map((p) => (
-            <ProjectCard key={p.title} project={p} />
+        <div className="mt-8 space-y-12">
+          {grouped.map((g) => (
+            <div key={g.group}>
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-500">
+                {g.label}
+              </h3>
+              <div className="grid gap-5">
+                {g.items.map((p) => (
+                  <ProjectCard key={p.title} project={p} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

@@ -14,27 +14,44 @@ export function Footer() {
           or fully remote across Portugal and Europe.
         </p>
 
-        <div className="mt-6 grid gap-3 text-sm md:grid-cols-2">
+        <div className="mt-6 grid gap-3 text-sm md:grid-cols-3">
           <a
             href={`mailto:${profile.email}`}
-            className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-slate-200 hover:bg-white/[0.06]"
+            className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-slate-200 transition hover:bg-white/[0.06]"
           >
             <span className="block text-xs uppercase tracking-widest text-slate-500">Email</span>
-            <span className="mt-1 block">{profile.email}</span>
+            <span className="mt-1 block break-all">{profile.email}</span>
           </a>
           <a
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-slate-200 hover:bg-white/[0.06]"
+            className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-slate-200 transition hover:bg-white/[0.06]"
           >
             <span className="block text-xs uppercase tracking-widest text-slate-500">LinkedIn</span>
             <span className="mt-1 block">linkedin.com/in/brunombpereira</span>
           </a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-slate-200 transition hover:bg-white/[0.06]"
+          >
+            <span className="block text-xs uppercase tracking-widest text-slate-500">GitHub</span>
+            <span className="mt-1 block">github.com/brunombpereira</span>
+          </a>
         </div>
 
         <p className="mt-12 text-xs text-slate-500">
-          © {year} {profile.name}. Built with Next.js, TypeScript & Tailwind.
+          © {year} {profile.name}. Built with Next.js, TypeScript & Tailwind ·{" "}
+          <a
+            href="https://github.com/brunombpereira/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline-offset-2 hover:text-sky-400 hover:underline"
+          >
+            view source
+          </a>
         </p>
       </div>
     </footer>
