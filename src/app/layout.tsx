@@ -1,6 +1,13 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import { profile } from "@/data/profile";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-brunombpereira.vercel.app";
@@ -49,10 +56,34 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// Structured data — Google + LinkedIn parse this for rich previews
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.tagline,
+  email: `mailto:${profile.email}`,
+  url: SITE_URL,
+  sameAs: [profile.github, profile.linkedin],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: profile.location,
+    addressCountry: "PT",
+  },
+  knowsAbout: profile.stack.flatMap((g) => g.items),
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={inter.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }

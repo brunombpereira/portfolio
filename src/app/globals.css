@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Importa Inter (peso variável) — não precisa de <link> no head */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+/* Inter font is loaded via next/font/google in app/layout.tsx
+   (self-hosted, no Google call at runtime — privacy + Core Web Vitals win) */
 
 :root {
   --bg: #0b1118;
@@ -20,7 +20,6 @@ html {
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: "Inter", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
