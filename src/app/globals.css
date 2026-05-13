@@ -2,26 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Inter font is loaded via next/font/google in app/layout.tsx
-   (self-hosted, no Google call at runtime — privacy + Core Web Vitals win) */
+/* Fonts loaded via next/font/google in app/layout.tsx (self-hosted, no
+   runtime Google call — privacy + Core Web Vitals win). */
 
 :root {
   --bg: #0b1118;
   --bg-soft: #111a24;
   --fg: #e6edf3;
   --fg-muted: #94a3b8;
-  --accent: #4a9eff;
+  --accent: #38bdf8;     /* sky-400 — primary accent */
+  --accent-soft: #0ea5e9; /* sky-500 — hover/deeper */
 }
 
 html {
   scroll-behavior: smooth;
+  /* Account for the sticky nav so anchor links don't land under it */
+  scroll-padding-top: 5rem;
 }
 
 body {
   background: var(--bg);
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
+  /* Subtle radial glow behind the hero so the page doesn't feel flat */
+  background-image:
+    radial-gradient(ellipse 800px 600px at 50% -20%, rgba(56, 189, 248, 0.08), transparent 60%);
+  background-attachment: fixed;
 }
 
-/* Pequenos retoques globais */
-::selection { background: var(--accent); color: #fff; }
+::selection { background: var(--accent); color: #0b1118; }
+
+@layer base {
+  h1, h2, h3.font-serif, .font-serif {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Reveal-on-scroll: starts hidden, fade-up class triggered by JS toggles
+   data-revealed="true" → opacity 1. Pure CSS, no runtime JS in render. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal[data-revealed="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* If JS is disabled the IntersectionObserver never fires; without this,
+   every `.reveal` element stays at opacity 0 forever. */
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
