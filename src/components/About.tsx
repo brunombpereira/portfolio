@@ -39,8 +39,42 @@ export function About() {
                 </ul>
               </div>
             ))}
+
+            <div>
+              <h3 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Languages
+              </h3>
+              <ul className="mt-3 flex flex-wrap gap-1.5">
+                {profile.languages.map((lang) => (
+                  <li
+                    key={lang.name}
+                    className="inline-flex items-baseline gap-1.5 rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs text-slate-200"
+                  >
+                    <span className="font-medium text-white">{lang.name}</span>
+                    <span className="text-[10px] uppercase tracking-wide text-slate-400">
+                      {lang.level}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </Reveal>
         </div>
+
+        {profile.availability && (
+          <Reveal delay={320}>
+            <div className="mt-12 flex items-start gap-3 rounded-xl border border-sky-500/20 bg-sky-500/[0.04] px-5 py-4 text-sm text-slate-300">
+              <span
+                aria-hidden="true"
+                className="mt-0.5 inline-flex h-2 w-2 shrink-0 animate-pulse rounded-full bg-emerald-400"
+              />
+              <p>
+                <span className="font-semibold text-white">Available now.</span>{" "}
+                {profile.availability}
+              </p>
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );
