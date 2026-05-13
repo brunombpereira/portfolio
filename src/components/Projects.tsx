@@ -124,7 +124,8 @@ export function Projects() {
   })).filter((g) => g.items.length > 0);
 
   return (
-    <section id="projects" className="border-t border-white/5 px-6 py-24">
+    <section id="projects" className="relative px-6 py-24">
+      <div aria-hidden="true" className="divider-line divider-violet absolute inset-x-0 top-0 mx-auto max-w-3xl" />
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <div className="flex items-baseline gap-3">

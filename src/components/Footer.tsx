@@ -4,7 +4,8 @@ import { Reveal } from "./Reveal";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer id="contact" className="border-t border-white/5 px-6 py-24">
+    <footer id="contact" className="relative px-6 py-24">
+      <div aria-hidden="true" className="divider-line divider-emerald absolute inset-x-0 top-0 mx-auto max-w-3xl" />
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <div className="flex items-baseline gap-3">

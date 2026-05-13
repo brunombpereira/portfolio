@@ -45,7 +45,8 @@ const KIND_ICON = (kind: TimelineEntry["kind"]) => {
 
 export function Experience() {
   return (
-    <section id="experience" className="border-t border-white/5 px-6 py-24">
+    <section id="experience" className="relative px-6 py-24">
+      <div aria-hidden="true" className="divider-line divider-amber absolute inset-x-0 top-0 mx-auto max-w-3xl" />
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <div className="flex items-baseline gap-3">
