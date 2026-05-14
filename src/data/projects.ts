@@ -13,21 +13,39 @@ export type Project = {
 export const projects: Project[] = [
   // ---- Open-source / personal projects (newest first) ----
   {
+    title: "Claude Code Status Line",
+    context: "Open source · 2026 · github.com/brunombpereira/claude-statusline",
+    description:
+      "A two-line, information-dense status line for Claude Code, written in Bash — workspace, git/jujutsu state, model, context window, session cost, and 5h/7d rate-limit windows, all at a glance.",
+    highlights: [
+      "A single Bash script that parses the JSON Claude Code streams in and renders two lines: workspace · VCS · model · time · environment, then a context bar · session cost · rate-limit windows.",
+      "Rich git segment (dirty / staged / unstaged / untracked counts, ahead-behind, stash, diff lines) with a jujutsu fallback; the environment line auto-detects WSL + Python/Ruby/Node and caches it for an hour.",
+      "Colors shift green → yellow → orange → red as the bars fill, and the whole layout auto-compacts below 100 columns.",
+      "install.sh / uninstall.sh merge the statusLine block into ~/.claude/settings.json with a timestamped backup; a golden-file test suite (fixtures + expected output) runs in GitHub Actions.",
+    ],
+    tech: ["Bash", "Claude Code", "Git", "jujutsu", "GitHub Actions"],
+    links: [
+      { label: "Code →", url: "https://github.com/brunombpereira/claude-statusline" },
+    ],
+    group: "open-source",
+  },
+  {
     title: "JobTracker — Full-Stack App for Managing Job Applications",
     context: "Open source · 2026 · github.com/brunombpereira/job-tracker",
     description:
-      "End-to-end Rails 7.1 API + React/Vite app I built to manage my own pipeline of job offers, with a Kanban board, full-text filters, multi-source scraping, and a state machine on the backend.",
+      "End-to-end Rails 7.1 API + React/Vite app I built to manage my own pipeline of job applications — a drag-and-drop Kanban board, multi-source scraping, an automatic match score, a paste-a-URL importer, and in-app personalization. Self-hostable, deployed on Render + Vercel.",
     highlights: [
-      "Rails 7.1 API with a normalised data model (Offer, Source, Note, StatusChange, SearchBatch) and a server-side state machine that validates every transition.",
-      "React 18 + TypeScript + Tailwind frontend: CRUD via TanStack Query mutations, debounced search, multi-status filter, match-score range, server-side pagination.",
-      "Multi-source job scraping (Remotive, Landing.jobs, WWR, HN Who's Hiring, Net-Empregos, Teamlyzer, LinkedIn guest API) fanned out via Sidekiq jobs into a SearchBatch with live progress.",
-      'Kanban view powered by @dnd-kit with optimistic UI — drag a card from "interested" to "applied" and the API persists the transition.',
-      "140+ RSpec examples covering filters, sort, pagination, scrapers, the state machine, and a profile-aware match-score algorithm. CI-friendly setup (one bin/setup away on a fresh Linux box).",
+      "Rails 7.1 API with a normalised data model (Offer, Source, Note, StatusChange, SearchBatch) and a server-side state machine that validates every status transition.",
+      "React 18 + TypeScript + Tailwind frontend: a @dnd-kit Kanban board with optimistic UI, debounced full-text search, multi-status / match-score / location filters, and server-side pagination via TanStack Query.",
+      "Multi-source job scraping (Remotive, Landing.jobs, We Work Remotely, Net-Empregos, Teamlyzer, LinkedIn guest API) fanned out via Sidekiq into a SearchBatch with live progress and per-source health monitoring.",
+      "Universal URL importer — paste a LinkedIn/Indeed/ATS link and it extracts the offer via JSON-LD / OpenGraph parsing behind an SSRF guard, with on-demand description fetch for thinly-scraped cards.",
+      "Fully self-hostable: an in-app Settings page for profile, scoring keywords and CV / cover-letter uploads (no config files), shared-secret API auth, follow-up reminders, CSV/XLSX export, and 220+ RSpec examples gated in GitHub Actions CI.",
     ],
     tech: [
       "Ruby on Rails",
       "PostgreSQL",
       "Sidekiq",
+      "Redis",
       "RSpec",
       "React",
       "TypeScript",
