@@ -1,7 +1,7 @@
 // Adiciona/remove/edita projetos aqui — a página puxa esta lista.
 export type Project = {
   title: string;
-  context: string;     // ex.: "Wiremaze · 2025"
+  context: string; // ex.: "Wiremaze · 2025"
   description: string; // 1-2 frases
   highlights: string[];
   tech: string[];
@@ -21,13 +21,21 @@ export const projects: Project[] = [
       "Rails 7.1 API with a normalised data model (Offer, Source, Note, StatusChange, SearchBatch) and a server-side state machine that validates every transition.",
       "React 18 + TypeScript + Tailwind frontend: CRUD via TanStack Query mutations, debounced search, multi-status filter, match-score range, server-side pagination.",
       "Multi-source job scraping (Remotive, Landing.jobs, WWR, HN Who's Hiring, Net-Empregos, Teamlyzer, LinkedIn guest API) fanned out via Sidekiq jobs into a SearchBatch with live progress.",
-      "Kanban view powered by @dnd-kit with optimistic UI — drag a card from \"interested\" to \"applied\" and the API persists the transition.",
+      'Kanban view powered by @dnd-kit with optimistic UI — drag a card from "interested" to "applied" and the API persists the transition.',
       "140+ RSpec examples covering filters, sort, pagination, scrapers, the state machine, and a profile-aware match-score algorithm. CI-friendly setup (one bin/setup away on a fresh Linux box).",
     ],
-    tech: ["Ruby on Rails", "PostgreSQL", "Sidekiq", "RSpec", "React", "TypeScript", "TanStack Query", "@dnd-kit", "Tailwind"],
-    links: [
-      { label: "Code →", url: "https://github.com/brunombpereira/job-tracker" },
+    tech: [
+      "Ruby on Rails",
+      "PostgreSQL",
+      "Sidekiq",
+      "RSpec",
+      "React",
+      "TypeScript",
+      "TanStack Query",
+      "@dnd-kit",
+      "Tailwind",
     ],
+    links: [{ label: "Code →", url: "https://github.com/brunombpereira/job-tracker" }],
     group: "open-source",
   },
   {
@@ -41,9 +49,7 @@ export const projects: Project[] = [
       "Shellcheck on every PR via GitHub Actions; conventional commits throughout.",
     ],
     tech: ["Bash", "asdf", "zsh", "starship", "PostgreSQL", "GitHub Actions"],
-    links: [
-      { label: "Code →", url: "https://github.com/brunombpereira/dotfiles" },
-    ],
+    links: [{ label: "Code →", url: "https://github.com/brunombpereira/dotfiles" }],
     group: "open-source",
   },
   {
@@ -58,9 +64,7 @@ export const projects: Project[] = [
       "Vercel auto-deploy on every push to main.",
     ],
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Vercel"],
-    links: [
-      { label: "Code →", url: "https://github.com/brunombpereira/portfolio" },
-    ],
+    links: [{ label: "Code →", url: "https://github.com/brunombpereira/portfolio" }],
     group: "open-source",
   },
 
@@ -75,7 +79,13 @@ export const projects: Project[] = [
       "Owned the full path from data model to mobile-ready frontend — including the usage-analytics dashboard the municipality uses to monitor adoption.",
       "Automated tests around the issuance pipeline; integration into the GitLab CI build.",
     ],
-    tech: ["Ruby on Rails", "PostgreSQL", "Apple Wallet (PassKit)", "Google Wallet Issuer API", "REST APIs"],
+    tech: [
+      "Ruby on Rails",
+      "PostgreSQL",
+      "Apple Wallet (PassKit)",
+      "Google Wallet Issuer API",
+      "REST APIs",
+    ],
     group: "work",
   },
   {
@@ -143,9 +153,7 @@ export const projects: Project[] = [
       "Active GitHub profile with personal and academic projects.",
     ],
     tech: ["Python", "Flask", "C#", "SQL Server", "JavaScript"],
-    links: [
-      { label: "GitHub →", url: "https://github.com/brunombpereira" },
-    ],
+    links: [{ label: "GitHub →", url: "https://github.com/brunombpereira" }],
     group: "academic",
   },
 ];

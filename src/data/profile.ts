@@ -6,7 +6,6 @@ export const profile = {
   tagline: "Junior Full-Stack Web Developer",
   location: "Aveiro, Portugal",
   email: "brunoborlido@gmail.com",
-  phone: "",
   github: "https://github.com/brunombpereira",
   linkedin: "https://www.linkedin.com/in/brunombpereira",
   // Curto, em primeira pessoa — aparece no Hero
@@ -34,7 +33,13 @@ export const profile = {
     },
     {
       group: "Also exploring",
-      items: ["Python (Flask)", "C# / .NET", "SQL Server (SSMS)", "Tailwind CSS", "AI assistants (Claude, Copilot)"],
+      items: [
+        "Python (Flask)",
+        "C# / .NET",
+        "SQL Server (SSMS)",
+        "Tailwind CSS",
+        "AI assistants (Claude, Copilot)",
+      ],
     },
   ],
   // Spoken languages — aparece em About como chips.

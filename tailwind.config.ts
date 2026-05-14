@@ -12,13 +12,13 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans:  ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         serif: ["var(--font-serif)", "ui-serif", "Georgia", "serif"],
-        mono:  ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       keyframes: {
         "fade-up": {
-          "0%":   { opacity: "0", transform: "translateY(16px)" },
+          "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },

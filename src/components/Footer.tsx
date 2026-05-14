@@ -5,7 +5,10 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer id="contact" className="relative px-6 py-24">
-      <div aria-hidden="true" className="divider-line divider-emerald absolute inset-x-0 top-0 mx-auto max-w-3xl" />
+      <div
+        aria-hidden="true"
+        className="divider-line divider-emerald absolute inset-x-0 top-0 mx-auto max-w-3xl"
+      />
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <div className="flex items-baseline gap-3">
@@ -32,10 +35,17 @@ export function Footer() {
               href={`mailto:${profile.email}`}
               className="group rounded-xl border border-white/10 bg-gradient-to-br from-sky-500/[0.06] to-transparent px-4 py-4 text-slate-200 transition hover:border-sky-500/40 hover:from-sky-500/[0.12]"
             >
-              <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-300">Email</span>
+              <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-300">
+                Email
+              </span>
               <span className="mt-1.5 flex items-center justify-between gap-2 break-all">
                 <span>{profile.email}</span>
-                <span className="text-sky-400 transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+                <span
+                  className="text-sky-400 transition group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
               </span>
             </a>
             <a
@@ -44,10 +54,17 @@ export function Footer() {
               rel="noopener noreferrer"
               className="group rounded-xl border border-white/10 bg-gradient-to-br from-violet-500/[0.06] to-transparent px-4 py-4 text-slate-200 transition hover:border-violet-500/40 hover:from-violet-500/[0.12]"
             >
-              <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">LinkedIn</span>
+              <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
+                LinkedIn
+              </span>
               <span className="mt-1.5 flex items-center justify-between gap-2">
                 <span>linkedin.com/in/brunombpereira</span>
-                <span className="text-violet-400 transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+                <span
+                  className="text-violet-400 transition group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
               </span>
             </a>
             <a
@@ -56,10 +73,17 @@ export function Footer() {
               rel="noopener noreferrer"
               className="group rounded-xl border border-white/10 bg-gradient-to-br from-amber-500/[0.06] to-transparent px-4 py-4 text-slate-200 transition hover:border-amber-500/40 hover:from-amber-500/[0.12]"
             >
-              <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-300">GitHub</span>
+              <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-300">
+                GitHub
+              </span>
               <span className="mt-1.5 flex items-center justify-between gap-2">
                 <span>github.com/brunombpereira</span>
-                <span className="text-amber-400 transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+                <span
+                  className="text-amber-400 transition group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
               </span>
             </a>
           </div>

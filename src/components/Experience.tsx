@@ -5,15 +5,35 @@ const TONES: Record<
   NonNullable<TimelineEntry["tone"]>,
   { dot: string; text: string; ring: string; bg: string }
 > = {
-  sky:     { dot: "bg-sky-400",     text: "text-sky-300",     ring: "ring-sky-500/30",     bg: "bg-sky-500/[0.06]" },
-  amber:   { dot: "bg-amber-400",   text: "text-amber-300",   ring: "ring-amber-500/30",   bg: "bg-amber-500/[0.06]" },
-  violet:  { dot: "bg-violet-400",  text: "text-violet-300",  ring: "ring-violet-500/30",  bg: "bg-violet-500/[0.06]" },
-  emerald: { dot: "bg-emerald-400", text: "text-emerald-300", ring: "ring-emerald-500/30", bg: "bg-emerald-500/[0.06]" },
+  sky: {
+    dot: "bg-sky-400",
+    text: "text-sky-300",
+    ring: "ring-sky-500/30",
+    bg: "bg-sky-500/[0.06]",
+  },
+  amber: {
+    dot: "bg-amber-400",
+    text: "text-amber-300",
+    ring: "ring-amber-500/30",
+    bg: "bg-amber-500/[0.06]",
+  },
+  violet: {
+    dot: "bg-violet-400",
+    text: "text-violet-300",
+    ring: "ring-violet-500/30",
+    bg: "bg-violet-500/[0.06]",
+  },
+  emerald: {
+    dot: "bg-emerald-400",
+    text: "text-emerald-300",
+    ring: "ring-emerald-500/30",
+    bg: "bg-emerald-500/[0.06]",
+  },
 };
 
 const KIND_LABEL: Record<TimelineEntry["kind"], string> = {
-  work:          "Work",
-  education:     "Education",
+  work: "Work",
+  education: "Education",
   certification: "Certification",
 };
 
@@ -21,21 +41,45 @@ const KIND_ICON = (kind: TimelineEntry["kind"]) => {
   switch (kind) {
     case "work":
       return (
-        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          viewBox="0 0 24 24"
+          className="h-3.5 w-3.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <rect x="3" y="7" width="18" height="13" rx="2" />
           <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
         </svg>
       );
     case "education":
       return (
-        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          viewBox="0 0 24 24"
+          className="h-3.5 w-3.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="m22 10-10-5L2 10l10 5 10-5z" />
           <path d="M6 12v5c3 1.5 9 1.5 12 0v-5" />
         </svg>
       );
     case "certification":
       return (
-        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          viewBox="0 0 24 24"
+          className="h-3.5 w-3.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <circle cx="12" cy="8" r="5" />
           <path d="m8.5 12 -1.5 9 5-3 5 3 -1.5-9" />
         </svg>
@@ -46,7 +90,10 @@ const KIND_ICON = (kind: TimelineEntry["kind"]) => {
 export function Experience() {
   return (
     <section id="experience" className="relative px-6 py-24">
-      <div aria-hidden="true" className="divider-line divider-amber absolute inset-x-0 top-0 mx-auto max-w-3xl" />
+      <div
+        aria-hidden="true"
+        className="divider-line divider-amber absolute inset-x-0 top-0 mx-auto max-w-3xl"
+      />
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <div className="flex items-baseline gap-3">
@@ -64,7 +111,12 @@ export function Experience() {
           {experience.map((e, i) => {
             const tone = TONES[e.tone ?? "sky"];
             return (
-              <Reveal key={`${e.title}-${i}`} delay={i * 80} as="article" className="relative">
+              <Reveal
+                key={`${e.title}-${i}`}
+                delay={i * 80}
+                as="article"
+                className="relative"
+              >
                 {/* Connector dot on the timeline */}
                 <span
                   aria-hidden="true"

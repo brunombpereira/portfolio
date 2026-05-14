@@ -3,14 +3,14 @@ import { profile } from "@/data/profile";
 import { Reveal } from "./Reveal";
 
 const STATS = [
-  { label: "Shipping production", value: "1+ yr", tone: "sky"     },
-  { label: "Stack",               value: "Rails · React", tone: "amber"   },
-  { label: "Status",              value: "Final-year CS @ UA", tone: "violet"  },
+  { label: "Shipping production", value: "1+ yr", tone: "sky" },
+  { label: "Stack", value: "Rails · React", tone: "amber" },
+  { label: "Status", value: "Final-year CS @ UA", tone: "violet" },
 ] as const;
 
 const STAT_TONE = {
-  sky:    "text-sky-300",
-  amber:  "text-amber-300",
+  sky: "text-sky-300",
+  amber: "text-amber-300",
   violet: "text-violet-300",
 } as const;
 
@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden px-6 pt-16 pb-20 md:pt-24 md:pb-28"
+      className="relative overflow-hidden px-6 pb-20 pt-16 md:pb-28 md:pt-24"
     >
       {/* Subtle grid backdrop, only visible inside the hero */}
       <div
@@ -122,7 +122,7 @@ function PhotoFrame() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-10 -left-6 h-32 w-32 rounded-full bg-gradient-to-br from-amber-500/30 to-pink-500/30 blur-3xl"
+        className="pointer-events-none absolute -left-6 -top-10 h-32 w-32 rounded-full bg-gradient-to-br from-amber-500/30 to-pink-500/30 blur-3xl"
       />
 
       {/* Sticker-like accent chip */}

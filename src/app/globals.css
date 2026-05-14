@@ -10,11 +10,11 @@
   --bg-soft: #111a24;
   --fg: #e6edf3;
   --fg-muted: #94a3b8;
-  --accent: #38bdf8;       /* sky-400  — primary actions/links     */
-  --accent-soft: #0ea5e9;  /* sky-500  — hover deeper               */
-  --accent-warm: #fb923c;  /* orange-400 — tech callouts, glows     */
-  --accent-glow: #a78bfa;  /* violet-400 — secondary glow accent    */
-  --available: #34d399;    /* emerald-400 — "available" + success   */
+  --accent: #38bdf8; /* sky-400  — primary actions/links     */
+  --accent-soft: #0ea5e9; /* sky-500  — hover deeper               */
+  --accent-warm: #fb923c; /* orange-400 — tech callouts, glows     */
+  --accent-glow: #a78bfa; /* violet-400 — secondary glow accent    */
+  --available: #34d399; /* emerald-400 — "available" + success   */
 }
 
 html {
@@ -32,17 +32,39 @@ body {
      deeper violet wash mid-page. All fixed-attachment so they keep
      their position while scrolling. */
   background-image:
-    radial-gradient(ellipse 600px 400px at 15% 0%,   rgba(56, 189, 248, 0.10), transparent 65%),
-    radial-gradient(ellipse 500px 350px at 90% 5%,   rgba(251, 146, 60, 0.07), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 50% 45%,  rgba(167, 139, 250, 0.05), transparent 70%),
-    radial-gradient(ellipse 500px 400px at 10% 80%,  rgba(52, 211, 153, 0.04), transparent 70%);
+    radial-gradient(
+      ellipse 600px 400px at 15% 0%,
+      rgba(56, 189, 248, 0.1),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 500px 350px at 90% 5%,
+      rgba(251, 146, 60, 0.07),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 700px 500px at 50% 45%,
+      rgba(167, 139, 250, 0.05),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 500px 400px at 10% 80%,
+      rgba(52, 211, 153, 0.04),
+      transparent 70%
+    );
   background-attachment: fixed;
 }
 
-::selection { background: var(--accent); color: #0b1118; }
+::selection {
+  background: var(--accent);
+  color: #0b1118;
+}
 
 @layer base {
-  h1, h2, h3.font-serif, .font-serif {
+  h1,
+  h2,
+  h3.font-serif,
+  .font-serif {
     font-family: var(--font-serif), ui-serif, Georgia, serif;
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -65,7 +87,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
   .reveal {
     opacity: 1;
     transform: none;
@@ -85,7 +109,9 @@ body {
    CSS, no JS. Border-radius left to whatever Tailwind class the
    consumer applies (rounded-full on the new circular crop). */
 @keyframes photo-ring-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .photo-ring {
   position: absolute;
@@ -100,24 +126,59 @@ body {
     rgba(244, 114, 182, 0.5),
     rgba(56, 189, 248, 0.7)
   );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
   animation: photo-ring-spin 14s linear infinite;
   pointer-events: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .photo-ring { animation: none; }
+  .photo-ring {
+    animation: none;
+  }
 }
 
 /* Gradient section divider — replaces the flat border-t between
    sections with a horizontal line that fades through a per-section
    accent and back to transparent. */
-.divider-line     { height: 1px; width: 100%; }
-.divider-sky      { background: linear-gradient(to right, transparent, rgba(56, 189, 248, 0.45),  transparent); }
-.divider-amber    { background: linear-gradient(to right, transparent, rgba(251, 146, 60, 0.45),  transparent); }
-.divider-violet   { background: linear-gradient(to right, transparent, rgba(167, 139, 250, 0.45), transparent); }
-.divider-emerald  { background: linear-gradient(to right, transparent, rgba(52, 211, 153, 0.45),  transparent); }
+.divider-line {
+  height: 1px;
+  width: 100%;
+}
+.divider-sky {
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(56, 189, 248, 0.45),
+    transparent
+  );
+}
+.divider-amber {
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(251, 146, 60, 0.45),
+    transparent
+  );
+}
+.divider-violet {
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(167, 139, 250, 0.45),
+    transparent
+  );
+}
+.divider-emerald {
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(52, 211, 153, 0.45),
+    transparent
+  );
+}
 
 /* Subtle grid pattern for section backgrounds — a 32 px grid at low
    opacity adds depth without screaming "tech bro". */

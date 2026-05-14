@@ -22,41 +22,47 @@ const GROUP_ORDER: Group[] = ["open-source", "work", "academic"];
 const GROUP_TONE: Record<
   Group,
   {
-    label: string;          // eyebrow text colour
-    chip: string;           // group label chip ring + text
-    marker: string;         // bullet marker color
-    border: string;         // card hover border
-    glow: string;           // card hover background gradient
-    link: string;           // links inside the card
+    label: string; // eyebrow text colour
+    chip: string; // group label chip ring + text
+    marker: string; // bullet marker color
+    border: string; // card hover border
+    glow: string; // card hover background gradient
+    link: string; // links inside the card
   }
 > = {
   "open-source": {
-    label:  "text-sky-300",
-    chip:   "text-sky-300 ring-sky-500/30 bg-sky-500/[0.06]",
+    label: "text-sky-300",
+    chip: "text-sky-300 ring-sky-500/30 bg-sky-500/[0.06]",
     marker: "marker:text-sky-500",
     border: "hover:border-sky-500/40",
-    glow:   "group-hover:from-sky-500/15 group-hover:via-sky-500/[0.04] group-hover:to-transparent",
-    link:   "text-sky-300 hover:text-sky-200",
+    glow: "group-hover:from-sky-500/15 group-hover:via-sky-500/[0.04] group-hover:to-transparent",
+    link: "text-sky-300 hover:text-sky-200",
   },
   work: {
-    label:  "text-amber-300",
-    chip:   "text-amber-300 ring-amber-500/30 bg-amber-500/[0.06]",
+    label: "text-amber-300",
+    chip: "text-amber-300 ring-amber-500/30 bg-amber-500/[0.06]",
     marker: "marker:text-amber-500",
     border: "hover:border-amber-500/40",
-    glow:   "group-hover:from-amber-500/15 group-hover:via-amber-500/[0.04] group-hover:to-transparent",
-    link:   "text-amber-300 hover:text-amber-200",
+    glow: "group-hover:from-amber-500/15 group-hover:via-amber-500/[0.04] group-hover:to-transparent",
+    link: "text-amber-300 hover:text-amber-200",
   },
   academic: {
-    label:  "text-violet-300",
-    chip:   "text-violet-300 ring-violet-500/30 bg-violet-500/[0.06]",
+    label: "text-violet-300",
+    chip: "text-violet-300 ring-violet-500/30 bg-violet-500/[0.06]",
     marker: "marker:text-violet-500",
     border: "hover:border-violet-500/40",
-    glow:   "group-hover:from-violet-500/15 group-hover:via-violet-500/[0.04] group-hover:to-transparent",
-    link:   "text-violet-300 hover:text-violet-200",
+    glow: "group-hover:from-violet-500/15 group-hover:via-violet-500/[0.04] group-hover:to-transparent",
+    link: "text-violet-300 hover:text-violet-200",
   },
 };
 
-function ProjectCard({ project, tone }: { project: Project; tone: (typeof GROUP_TONE)[Group] }) {
+function ProjectCard({
+  project,
+  tone,
+}: {
+  project: Project;
+  tone: (typeof GROUP_TONE)[Group];
+}) {
   return (
     <article
       className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:bg-white/[0.05] md:p-7 ${tone.border}`}
@@ -78,7 +84,9 @@ function ProjectCard({ project, tone }: { project: Project; tone: (typeof GROUP_
           {project.description}
         </p>
 
-        <ul className={`mt-5 list-disc space-y-1.5 pl-5 text-sm text-slate-400 ${tone.marker}`}>
+        <ul
+          className={`mt-5 list-disc space-y-1.5 pl-5 text-sm text-slate-400 ${tone.marker}`}
+        >
           {project.highlights.map((h) => (
             <li key={h}>{h}</li>
           ))}
@@ -106,7 +114,12 @@ function ProjectCard({ project, tone }: { project: Project; tone: (typeof GROUP_
                 className={`group/link inline-flex items-center gap-1.5 text-sm font-medium transition ${tone.link}`}
               >
                 {l.label}
-                <span className="transition group-hover/link:translate-x-0.5" aria-hidden="true">→</span>
+                <span
+                  className="transition group-hover/link:translate-x-0.5"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
               </a>
             ))}
           </div>
@@ -125,7 +138,10 @@ export function Projects() {
 
   return (
     <section id="projects" className="relative px-6 py-24">
-      <div aria-hidden="true" className="divider-line divider-violet absolute inset-x-0 top-0 mx-auto max-w-3xl" />
+      <div
+        aria-hidden="true"
+        className="divider-line divider-violet absolute inset-x-0 top-0 mx-auto max-w-3xl"
+      />
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <div className="flex items-baseline gap-3">
@@ -151,9 +167,7 @@ export function Projects() {
                     >
                       {g.label}
                     </span>
-                    <span className="text-xs text-slate-500">
-                      ({g.items.length})
-                    </span>
+                    <span className="text-xs text-slate-500">({g.items.length})</span>
                   </h3>
                 </Reveal>
                 <div className="grid gap-5">

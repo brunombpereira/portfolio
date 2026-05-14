@@ -29,7 +29,10 @@ export function Reveal({ children, delay = 0, className = "", as = "div" }: Prop
           if (entry.isIntersecting) {
             const target = entry.target as HTMLElement;
             if (delay > 0) {
-              window.setTimeout(() => target.setAttribute("data-revealed", "true"), delay);
+              window.setTimeout(
+                () => target.setAttribute("data-revealed", "true"),
+                delay,
+              );
             } else {
               target.setAttribute("data-revealed", "true");
             }

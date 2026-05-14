@@ -46,6 +46,7 @@ Hot reload: edita qualquer ficheiro em `src/` e o browser atualiza sozinho.
 Não precisas de mexer em `components/` ou `app/` para mudar texto.
 
 Para mudar o **esquema de cores** (azul de marca):
+
 - `tailwind.config.ts` → `theme.extend.colors.accent`
 - `src/app/globals.css` → variável CSS `--accent`
 
@@ -71,11 +72,11 @@ Cada push para `main` no GitHub faz redeploy automático.
 
 ## Stack
 
-| Layer       | Tech                                |
-| ----------- | ----------------------------------- |
-| Framework   | Next.js 14 (App Router)             |
-| Linguagem   | TypeScript                          |
-| Estilos     | Tailwind CSS 3                      |
-| Tipografia  | Inter (Google Fonts)                |
-| Deploy      | Vercel (gratuito tier hobby)        |
-| Node        | 18+ recomendado                     |
+| Layer      | Tech                         |
+| ---------- | ---------------------------- |
+| Framework  | Next.js 14 (App Router)      |
+| Linguagem  | TypeScript                   |
+| Estilos    | Tailwind CSS 3               |
+| Tipografia | Inter (Google Fonts)         |
+| Deploy     | Vercel (gratuito tier hobby) |
+| Node       | 18+ recomendado              |
